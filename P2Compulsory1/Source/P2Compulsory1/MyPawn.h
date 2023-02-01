@@ -66,5 +66,12 @@ private:
 	TArray<bool> SphereStatus;
 
 	void ChangeColor(FColor color);
+	
+	TArray<bool> SphereRed;
+	TArray<bool> SphereBlue;
 
+	void WinCondition();
+
+	bool BlueWin;
+	bool RedWin;
 };
