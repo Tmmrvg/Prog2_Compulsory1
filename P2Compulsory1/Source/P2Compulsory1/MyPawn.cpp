@@ -190,76 +190,83 @@ void AMyPawn::TurnController(int sphereindex)
 
 void AMyPawn::WinCondition()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Called WinCondition"));
+	//UE_LOG(LogTemp, Warning, TEXT("Called WinCondition"));
 	
-// #pragma region RedCondition
-// 	//Checks Horisontally
-// 	for (int i = 0; i < 9; i += 3)
-// 	{
-// 		if (SphereRed[i] == true && SphereRed[i + 1] == true && SphereRed[i + 2] == true)
-// 		{
-// 			RedWin = true;
-// 			UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
-// 		}
-// 	}
-//
-// 	//Checks Vertically
-// 	for (int i = 0; i < 9; i += 3)
-// 	{
-// 		if (SphereRed[i] == true && SphereRed[i + 3] == true && SphereRed[i + 6] == true)
-// 		{
-// 			RedWin = true;
-// 			UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
-// 		}
-// 	}
-//
-// 	//Checks Diagonally
-// 	if (SphereRed[0] == true && SphereRed[4] == true && SphereRed[8] == true)
-// 	{
-// 		RedWin = true;
-// 		UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
-// 	}
-// 	else if (SphereRed[2] && SphereRed[4] && SphereRed[6] )
-// 	{
-// 		RedWin = true;
-// 		UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
-// 	}
-//
-// #pragma endregion
-//
-// #pragma region BlueCondition
-// 	//Checks Horisontally
-// 	for (int i = 0; i < 9; i += 3)
-// 	{
-// 		if (SphereBlue[i] == true && SphereBlue[i + 1] == true && SphereBlue[i + 2] == true)
-// 		{
-// 			BlueWin = true;
-// 			UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
-// 		}
-// 	}
-//
-// 	//Checks Vertically
-// 	for (int i = 0; i < 9; i += 3)
-// 	{
-// 		if (SphereBlue[i] == true && SphereBlue[i + 3] == true && SphereBlue[i + 6] == true)
-// 		{
-// 			BlueWin = true;
-// 			UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
-// 		}
-// 	}
-//
-// 	//Checks Diagonally
-// 	if (SphereBlue[0] == true && SphereBlue[4] == true && SphereBlue[8] == true)
-// 	{
-// 		BlueWin = true;
-// 		UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
-// 	}
-// 	else if (SphereBlue[2] && SphereBlue[4] && SphereBlue[6])
-// 	{
-// 		BlueWin = true;
-// 		UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
-// 	}
-// 	
-// #pragma endregion
+#pragma region RedCondition
+	//Checks Horisontally
+	for (int i = 0; i < 9; i += 3)
+	{
+		if (SphereRed[i] == true && SphereRed[i + 1] == true && SphereRed[i + 2] == true)
+		{
+			RedWin = true;
+			UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
+			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, TEXT("Red Wins"));
+		}
+	}
+
+	//Checks Vertically
+	for (int i = 0; i < 2; i += 1)
+	{
+		if (SphereRed[i] == true && SphereRed[i + 3] == true && SphereRed[i + 6] == true)
+		{
+			RedWin = true;
+			UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
+			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, TEXT("Red Wins"));
+		}
+	}
+
+	//Checks Diagonally
+	if (SphereRed[0] == true && SphereRed[4] == true && SphereRed[8] == true)
+	{
+		RedWin = true;
+		UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
+	}
+	else if (SphereRed[2] && SphereRed[4] && SphereRed[6] )
+	{
+		RedWin = true;
+		UE_LOG(LogTemp, Warning, TEXT("Red Wins"));
+		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, TEXT("Red Wins"));
+	}
+
+#pragma endregion
+
+#pragma region BlueCondition
+	//Checks Horisontally
+	for (int i = 0; i < 9; i += 3)
+	{
+		if (SphereBlue[i] == true && SphereBlue[i + 1] == true && SphereBlue[i + 2] == true)
+		{
+			BlueWin = true;
+			UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
+			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, TEXT("Blue Wins"));
+		}
+	}
+
+	//Checks Vertically
+	for (int i = 0; i < 2; i += 1)
+	{
+		if (SphereBlue[i] == true && SphereBlue[i + 3] == true && SphereBlue[i + 6] == true)
+		{
+			BlueWin = true;
+			UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
+			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, TEXT("Blue Wins"));
+		}
+	}
+
+	//Checks Diagonally
+	if (SphereBlue[0] == true && SphereBlue[4] == true && SphereBlue[8] == true)
+	{
+		BlueWin = true;
+		UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
+		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, TEXT("Blue Wins"));
+	}
+	else if (SphereBlue[2] && SphereBlue[4] && SphereBlue[6])
+	{
+		BlueWin = true;
+		UE_LOG(LogTemp, Warning, TEXT("Blue Wins"));
+		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, TEXT("Blue Wins"));
+	}
+	
+#pragma endregion
 	
 }
